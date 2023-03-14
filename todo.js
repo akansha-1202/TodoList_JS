@@ -46,6 +46,7 @@ function createCard(){
     let title=document.createElement("h4");//<h4></h4>
     title.innerText=userInput;
     title.classList.add("heading");
+
     //<h4>userInput</h4>
 
      //adding functionality to "title" of list
@@ -124,18 +125,23 @@ function createCard(){
    
     //create one div to store title, + and delete buttons
     let div1 = document.createElement("div");
-    div1.append(title, hr, ul, del, plusIcon);
+    div1.append(title, hr, ul, plusIcon, del);
   
     // Set multiple CSS properties in one statement
-    div1.style.cssText = "width: 240px; height: auto; border: 1px solid black; border-radius:20px;box-shadow: 2px 2px 5px gray; background-color: white;";
+    div1.style.cssText = "width: 230px; height: 330px; border: 1px solid black; border-radius:20px;box-shadow: 2px 2px 5px gray; background-color: white;position:relative;text-align:center;";
 
     title.style.cssText="text-align:center;font-weight:bold;font-size:25px;"
 
     ul.style.cssText="list-style-type:none;text-align:center;";
 
-    del.style.cssText="float:right;margin:240px 15px 15px;";
+    //plusIcon.style.cssText="float:right;margin:240px 0px 15px;";
+    plusIcon.style.cssText="position:absolute;top:290px;left:190px;";
 
-    plusIcon.style.cssText="float:right;margin:240px 0px 15px;";
+    //del.style.cssText="float:right;margin:240px 15px 15px;";
+    del.style.cssText="margin-left:10px;position:absolute;top:290px;left:150px;";
+
+    
+
 
     //adding function to "del"
     del.addEventListener("click", function removeList(){
