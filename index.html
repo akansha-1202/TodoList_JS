@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="./todo.css">
+</head>
+<body>
+  <div id="content">
+      <header>
+        <div class="backBtnBox" style="display:none;">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span class="backText">Back</span>
+        </div>
+        
+        <div class="taskList" >
+            <span class="task">Tasks </span> List
+        </div>
+        <div class="addItem">
+            <i id="plusIcon" class="fa-solid fa-circle-plus"></i>
+            <p id="plusIcon" class="add">Add Item</p>
+        </div>
+      </header>
+
+      <p id="text" class="text">
+        No Items in the Todo List       
+      </p>
+
+    </div>
+
+    <div id="lists">
+<!-- <div class="child">
+        <p class="list_title">Trip to Bhutan</p>
+        <hr class="hrLine">
+        <div class="items">
+
+
+        </div>
+        <div class="icons">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+          <i class="fa-solid fa-circle-plus"></i>
+        </div>
+      </div> -->
+    </div>
+
+    
+    
+
+  <div id="listForm" style="display:none;">
+        <h4 class="addNewList">Add New List</h4>
+      <form>
+        <input type="text" id="listName" placeholder="Add New List"><br>
+        <button id="createNewCard" type="button">Add</button>
+        <button id="closeListForm" type="button">Close</button>
+      </form>
+  </div> 
+    
+
+
+    
+  <div id="itemForm" style="display:none;">
+      <h4 class="addNewItem">Add New Item</h4>
+    <form>
+      <input type="text" id="itemName" placeholder="Add New Item"><br>
+      <button id="createNewItem" type="button">Add</button>
+      <button id="closeItemForm" type="button">Close</button>
+    </form>
+  </div> 
+   
+    <script src="./todo.js"></script>
+</body>
+</html>
