@@ -88,7 +88,7 @@ function createCard(){
             header.firstElementChild.style.display="block";
             document.querySelector(".add").style.visibility="visible";
             document.querySelector(".backBtnBox").style.display="none";
-            document.querySelector(".taskList").innerHTML="";
+            document.querySelector(".taskList").innerHTML="Tasks List";
            // let taskListText = document.querySelector(".taskList").innerHTML;
             //console.log(taskListText);
 

@@ -11,11 +11,11 @@ header{
     justify-content: space-between;
     font-size:35px;
 }
-
+/* 
 .task{
     font-weight:bold; 
     color:dodgerblue;
-}
+} */
 
 .addItem{
     display:flex;
