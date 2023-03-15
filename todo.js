@@ -185,8 +185,8 @@ function showItemForm(ul){
     document.querySelector("#lists").style.filter = "blur(7px)";
     document.querySelector("#content").style.filter = "blur(7px)";
 
-    document.querySelector("#createNewItem").addEventListener("click",function m1(event){
-       event.preventDefault();
+    document.querySelector("#createNewItem").addEventListener("click",m1);
+       function m1(){
        let li=document.createElement("li");
        li.innerText=document.querySelector("#itemName").value
        ul.append(li);
@@ -198,12 +198,11 @@ function showItemForm(ul){
        markAsdone_btn.type="checkbox";
        markAsdone_btn.name="markAsDone";
        markAsdone_btn.classList.add("markAsDone");
-
-
        li.append(markAsdone_btn);
+
+
        markAsdone_btn.addEventListener("click", markAsDone);
-       function markAsDone(event){
-        event.preventDefault();
+       function markAsDone(){
         li.classList.add("li");
         markAsdone_btn.style.cursor="not-allowed";
         markAsdone_btn.style.display="none";
@@ -221,8 +220,8 @@ function showItemForm(ul){
          
        console.log("Add button is pressed.")
 
-    })
-}
+    }
+
 
 //to close itemform after clikcing "close" button
 document.querySelector("#closeItemForm").addEventListener("click",hideItemForm);
@@ -232,7 +231,8 @@ function hideItemForm(){
     document.querySelector("#content").style.filter = "none";
     document.querySelector("#lists").style.filter = "none";
     // document.querySelector("#text").style.display="none";
+    document.querySelector("#createNewItem").removeEventListener("click", m1);
 
     console.log("hideItemForm");
 }
-
+}
