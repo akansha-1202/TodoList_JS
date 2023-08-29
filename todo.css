@@ -1,278 +1,285 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
-* {
-  margin: 0;
-  padding: 0;
+body {
+  background-color: black;
+  padding: 80px;
+}
+div,
+ul {
   box-sizing: border-box;
 }
-html {
-  background-color: black;
+#content {
   color: white;
-  font-family: fantasy;
 }
-#container {
-  width: 98%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: absolute;
-  top: 50px;
-}
-#container2 {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-#tasks {
-  font-size: 3rem;
-  font-weight: 500;
-  letter-spacing: 3px;
-}
-#list {
-  font-size: 3rem;
-  font-weight: 500;
-  letter-spacing: 3px;
-}
-#additem {
-  font-size: 1.7rem;
-}
-#additem:hover {
-  transform: scale(1.1);
-}
-#createList {
-  color: dodgerblue;
-  font-size: 1.6rem;
-}
-#createList:hover {
-  transform: scale(1.3);
-}
-#noItems {
-  font-size: 2.3rem;
-  position: absolute;
-  top: 47%;
-  left: 37%;
-}
-#listForm,
-#itemForm {
-  height: 250px;
-  width: 400px;
-  background-color: white;
-  color: black;
-  border-radius: 15px;
-  text-align: center;
-  padding: 40px;
-  position: absolute;
-  top: 29%;
-  left: 35%;
-  z-index: 10;
-}
-#blur {
-  height: 200vh;
-  width: 100%;
-  background: rgba(255, 255, 255, 0);
-  backdrop-filter: blur(10px);
-  position: absolute;
-}
-
-h4 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-weight: 500;
-}
-input[type="text"] {
-  height: 45px;
-  width: 300px;
-  border-radius: 3px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 1.5rem;
-  font-family: fantasy;
-}
-button {
-  height: 40px;
-  width: 100px;
-  margin: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
-  font-size: 1.5rem;
-  font-family: fantasy;
-  letter-spacing: 1px;
-  font-weight: 500;
-}
-button:hover {
-  transform: scale(1.1);
-}
-.card {
-  margin-top: 40px;
-  margin-left: 50px;
-  min-height: 330px;
-  max-height: fit-content;
-  width: 230px;
-  background-color: white;
-  color: black;
-  border-radius: 15px;
-  text-align: center;
-  position: relative;
-}
-.card h4 {
-  margin-top: 15px;
-}
-#plus {
-  color: dodgerblue;
-  font-size: 1.8rem;
-  margin-top: 195px;
-  margin-left: 120px;
-}
-#delete {
-  font-size: 1.7rem;
-  margin-left: 10px;
-}
-#rule {
-  height: 2px;
-  background-color: black;
-}
-#lists {
-  width: 90%;
+header {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  position: absolute;
-  top: 135px;
-  left: 0px;
+  font-size: 35px;
 }
-li {
-  font-size: 1.3rem;
+/* 
+.task{
+    font-weight:bold; 
+    color:dodgerblue;
+} */
+
+.addItem {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
 }
-.mark {
-  height: 25px;
-  width: 80px;
-  font-size: 1rem;
-}
-.ul {
-  list-style-type: none;
-}
-#backicon {
-  font-size: 2rem;
-  margin-left: 120px;
-  position: absolute;
-  top: 23px;
-}
-#backicon:hover {
-  transform: scale(1.1);
-}
-#backtext {
-  font-size: 2rem;
-  position: absolute;
-  top: 19px;
-  left: 280px;
-}
-#backtext:hover {
-  transform: scale(1.1);
-}
-#heading {
-  position: absolute;
-  top: 37px;
-  left: 550px;
-  font-size: 3rem;
-}
-#anotherPlusIcon {
-  font-size: 2rem;
+
+.fa-solid {
   color: dodgerblue;
+}
+
+.add {
+  margin-top: -4px;
+}
+
+.text {
+  font-size: 25px;
+}
+
+#lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 10px;
+  gap: 20px 10px;
+}
+
+#listForm {
+  width: 400px;
+  height: 200px;
+  border: 1px solid #ededed;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px gray;
+  background-color: #ffffff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.heading {
+  color: red;
+}
+.addNewList {
+  color: red;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+#listName {
+  height: 40px;
+  width: 300px;
+  margin: 15px 50px;
+  text-align: center;
+}
+button {
+  height: 35px;
+  width: 80px;
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+  border-radius: 40px;
+  font-size: 20px;
+}
+
+#createNewCard {
+  margin-left: 100px;
+}
+#close {
+  margin-left: 40px;
+}
+
+#itemForm {
+  width: 400px;
+  height: 200px;
+  border: 1px solid #ededed;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px gray;
+  background-color: #ffffff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.addNewItem {
+  color: red;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+#itemName {
+  height: 40px;
+  width: 300px;
+  margin: 15px 50px;
+  text-align: center;
+}
+#createNewItem {
+  margin-left: 100px;
+}
+
+.cardList {
+  width: 250px;
+  height: 330px;
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px gray;
+  background-color: white;
+  position: relative;
+  text-align: center;
+}
+
+.cardTitle {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.cardItemList {
+  list-style-type: none;
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
   position: absolute;
-  top: 63px;
-  left: 1050px;
+  height: 150px;
+  width: 210px;
+}
+
+.cardAddIcon {
+  position: absolute;
+  top: 290px;
+  left: 190px;
+}
+
+.cardDelIcon {
+  margin-left: 10px;
+  position: absolute;
+  top: 290px;
+  left: 150px;
+}
+
+.markAsDone {
+  font-size: 10px;
+  background-color: dodgerblue;
+  border: 1px solid dodgerblue;
+  height: 20px;
+}
+.li {
+  text-decoration: line-through red;
+  opacity: 0.6;
+  color: red;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 600px) {
-  #container {
-    flex-direction: column;
-    margin-left: 5rem;
-    width: auto;
+  body {
+    padding: 35px;
+  }
+  header {
+    font-size: 1.2rem;
+    gap: 5px;
+  }
+  .text {
+    font-size: 1rem;
+    position: absolute;
+    top: 200px;
   }
 
-  #tasks {
-    font-size: 4rem;
+  #listForm {
+    width: 90%;
+    height: 160px;
+  }
+  .addNewList {
+    color: red;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 0px;
+  }
+  #listName {
+    height: 30px;
+    width: 250px;
+    margin: 10px 50px;
+  }
+  button {
+    height: 30px;
+    width: 70px;
+
+    font-size: 15px;
   }
 
-  #list {
-    font-size: 4rem;
+  #itemForm {
+    width: 90%;
+    height: 160px;
+  }
+  .addNewItem {
+    font-size: 15px;
+    margin-bottom: 0px;
+  }
+  #itemName {
+    height: 30px;
+    width: 250px;
+    margin: 10px 50px;
   }
 
-  #createList {
-    font-size: 2.5rem;
-    margin-top: 6rem;
-  }
-
-  #additem {
-    font-size: 3rem;
-    margin-top: 6rem;
-  }
-
-  #noItems {
-    width: 100%;
-    font-size: 2.5rem;
-    top: 65%;
-    left: 25%;
+  .cardList {
+    width: 250px;
+    height: 330px;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px gray;
+    background-color: white;
+    position: relative;
     text-align: center;
   }
 
-  #blur {
-    height: 150vh;
-    width: 150%;
-    background: rgba(255, 255, 255, 0);
-    backdrop-filter: blur(10px);
+  .cardTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .cardItemList {
+    list-style-type: none;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
     position: absolute;
+    height: 150px;
+    /* width:auto ; */
+    /* margin-left: 20px; */
+
+    /* padding: 10px; */
   }
 
-  #listForm,
-  #itemForm {
+  .cardAddIcon {
     position: absolute;
-    top: 45%;
-    left: 20%;
-    z-index: 10;
+    top: 290px;
+    left: 150px;
   }
 
-  .card {
-    margin-top: 5rem;
+  .cardDelIcon {
+    margin-left: 10px;
+    position: absolute;
+    top: 290px;
+    left: 110px;
   }
 
-  #lists {
-    width: 100%;
-    flex-direction: column;
-    top: 17rem;
-    left: 6.5rem;
-    padding-bottom: 5rem;
+  .markAsDone {
+    font-size: 6px;
+    background-color: dodgerblue;
+    border: 1px solid dodgerblue;
+    height: 20px;
+    padding: 2px;
+    width: 50px;
   }
-  #backicon {
-    font-size: 2rem;
-    margin-left: 120px;
-    position: absolute;
-    top: 23px;
-    left: -120px;
-  }
-  #backicon:hover {
-    transform: scale(1.1);
-  }
-  #backtext {
-    font-size: 2rem;
-    position: absolute;
-    top: 19px;
-    left: 35px;
-  }
-  #backtext:hover {
-    transform: scale(1.1);
-  }
-  #heading {
-    position: absolute;
-    top: 130px;
-    left: 230px;
-    font-size: 3rem;
-  }
-  #plus {
-    color: dodgerblue;
-    font-size: 1.8rem;
-    margin-top: 195px;
-    margin-left: 120px;
+  .li {
+    text-decoration: line-through red;
+    opacity: 0.6;
+    color: red;
+    font-weight: bold;
+    text-align: center;
   }
 }

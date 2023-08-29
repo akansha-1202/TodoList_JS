@@ -12,51 +12,43 @@
     <link rel="stylesheet" href="./todo.css" />
   </head>
   <body>
-    <div id="container">
-      <div id="container1">
-        <i
-          id="backicon"
-          class="fa-solid fa-circle-chevron-left"
-          style="visibility: hidden"
-        ></i>
-        <span id="backtext" style="visibility: hidden">Back</span>
-        <h1 id="heading" style="visibility: hidden"></h1>
-        <span id="tasks">Tasks</span>&nbsp;&nbsp;&nbsp;<span id="list"
-          >List</span
-        >
-      </div>
+    <div id="content">
+      <header>
+        <div class="backBtnBox" style="display: none">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span class="backText">Back</span>
+        </div>
 
-      <div id="container2">
-        <i id="createList" class="fa-sharp fa-solid fa-circle-plus"></i>
-        <span id="additem">Add Item</span>
-      </div>
+        <div class="taskList"><span class="task">Tasks </span> List</div>
+        <div class="addItem">
+          <i id="plusIcon" class="fa-solid fa-circle-plus"></i>
+          <p id="plusIcon" class="add">Add List</p>
+        </div>
+      </header>
+
+      <p id="text" class="text">No Items in the Todo List</p>
     </div>
 
-    <div id="noItems">
-      <span>No items in the to do list</span>
-    </div>
+    <div id="lists">List cards will be dynamically added here</div>
 
-    <div id="blur" style="visibility: hidden"></div>
-
-    <div style="visibility: hidden" id="listForm">
-      <h4>Add New List</h4>
+    <div id="listForm" style="display: none">
+      <h4 class="addNewList">Add New List</h4>
       <form>
-        <input type="text" id="listName" /><br />
-        <button id="addList" type="button">Add</button>
-        <button id="closeList" type="button">Close</button>
+        <input type="text" id="listName" placeholder="Add New List" /><br />
+        <button id="createNewCard" type="button">Add</button>
+        <button id="closeListForm" type="button">Close</button>
       </form>
     </div>
 
-    <div id="lists"></div>
-
-    <div style="visibility: hidden" id="itemForm">
-      <h4>Add New Item</h4>
+    <div id="itemForm" style="display: none">
+      <h4 class="addNewItem">Add New Item</h4>
       <form>
-        <input type="text" id="itemName" /><br />
-        <button id="add" type="button">Add</button>
-        <button id="exit" type="button">Close</button>
+        <input type="text" id="itemName" placeholder="Add New Item" /><br />
+        <button id="createNewItem" type="button">Add</button>
+        <button id="closeItemForm" type="button">Close</button>
       </form>
     </div>
+
     <script src="./todo.js"></script>
   </body>
 </html>
