@@ -1,186 +1,209 @@
 // click + button to show a form
 document.querySelector("#plusIcon").addEventListener("click", createList);
+// Function to show the list creation form
+//for showing form after clicking + button
+function createList() {
+      document.querySelector("#listForm").style.cssText = "display:block;";
+       document.querySelector("#lists").style.filter = "blur(7px)";
+       document.querySelector("#content").style.filter = "blur(7px)";
+       console.log("createList");
+}
 
-//to close form after clicking close button
-document
-  .querySelector("#closeListForm")
-  .addEventListener("click", hideListForm);
 
-//for creating Cards
+
+// Close form after clicking close button
+document.querySelector("#closeListForm").addEventListener("click", hideListForm);
+
+// Function to hide the list creation form
+function hideListForm() {
+       document.querySelector("#listForm").style.display = "none";
+        document.querySelector("#content").style.filter = "none";
+        document.querySelector("#lists").style.filter = "none";
+         console.log("hideListForm");
+}
+
+
+
+// For creating Cards
 document.querySelector("#createNewCard").addEventListener("click", createCard);
 
-//create an empty array to store lists
+// Create an empty array to store lists
 let cards = [];
-
-function createList() {
-  //for showing form after clicking + button
-  document.querySelector("#listForm").style.cssText = "display:block;";
-  document.querySelector("#lists").style.filter = "blur(7px)";
-  document.querySelector("#content").style.filter = "blur(7px)";
-
-  console.log("createList");
-}
-
-function hideListForm() {
-  document.querySelector("#listForm").style.display = "none";
-  document.querySelector("#content").style.filter = "none";
-  document.querySelector("#lists").style.filter = "none";
-
-  console.log("hideListForm");
-}
-
+// Function to create a new card
 function createCard() {
-  //to hide the form after pressing Add button
-  document.querySelector("#listForm").style.display = "none";
-  document.querySelector("#content").style.filter = "none";
-  document.querySelector("#text").style.display = "none";
-  document.querySelector("#lists").style.filter = "none";
+  // Hide the list creation form
+          document.querySelector("#listForm").style.display = "none";
+          document.querySelector("#content").style.filter = "none";
+          document.querySelector("#text").style.display = "none";
+          document.querySelector("#lists").style.filter = "none";
 
-  //read the data of the form
+  // Read the data of the form
   //creating new card on clicking "Add" button
-  let userInput = document.querySelector("#listName").value;
 
-  console.log("card is being created");
+          let userInput = document.querySelector("#listName").value;
+           console.log("card is being created");
 
-  //for putting itmes in card
+
+  // Create elements for the card
+          let title = document.createElement("h4");
+          title.innerText = userInput;
+           title.classList.add("heading");
+
+  // Adding functionality to the title of the list
   //add three element heading, hr,  ul list, plus & delete button
-  let title = document.createElement("h4"); //<h4></h4>
-  title.innerText = userInput;
-  title.classList.add("heading");
 
-  //<h4>userInput</h4>
+          title.addEventListener("click", titleBtn);
 
-  //adding functionality to "title" of list
-  title.addEventListener("click", titleBtn);
   function titleBtn() {
-    // hide the first child element of the header
-    let header = document.querySelector("header");
-    header.firstElementChild.style.display = "none";
+    // Hide the first child element of the header
+          let header = document.querySelector("header");
+           header.firstElementChild.style.display = "none";
+  
+          document.querySelector(".add").style.visibility = "hidden";
+  
+    // Show the "back" button
+          document.querySelector(".backBtnBox").style.display = "flex";
+  
+    // Set the inner HTML of the "taskList" element to the clicked title's text
+           document.querySelector(".taskList").innerHTML = this.innerText;
+  
+    // Center the "lists" element
+           document.querySelector("#lists").style.justifyContent = "center";
+  
+    // Hide the "#text" element
+            document.querySelector("#text").style.display = "none";
+  
+    // Create a new array and populate it with the clicked list's card
+            let tempArray = [];
+             for (let i = 0; i < cards.length; i++) {
+                 if (cards[i] === div1) {
+                      tempArray.push(cards[i]);
+                    }
+              }
+  
+    // Update the "cards" array and display the updated cards
+              display(tempArray);
+  
+    // Hide all cards except the clicked one
+               cards.forEach((card) => {
+                  if (card !== div1) {
+                     card.style.display = "none";
+                     }
+                   });
+  
+                 console.log("Title is clickable.");
+  
+    // Attach the event listener to the "Back" button
+  document.querySelector(".backBtnBox").addEventListener("click", reverseTitleBtn);
+  }
 
-    document.querySelector(".add").style.visibility = "hidden";
 
-    //show "back" button
-    document.querySelector(".backBtnBox").style.display = "flex";
 
-    //set the inner HTML of the "taskList" element to the clicked title's text
-    document.querySelector(".taskList").innerHTML = this.innerText;
+// Function to revert to the main list view
+function reverseTitleBtn() {
+  // Show the first child element of the header
+  let header = document.querySelector("header");
+  header.firstElementChild.style.display = "block";
 
-    //center the "lists" element
-    let lists = document.querySelector("#lists");
-    // lists.setAttribute("style","justify-content:center;")
-    lists.style.justifyContent = "center";
+  document.querySelector(".add").style.visibility = "visible";
+  document.querySelector(".backBtnBox").style.display = "none";
+  document.querySelector(".taskList").innerHTML = "Tasks List";
+  document.querySelector("#lists").style.justifyContent = "space-around";
 
-    //create a new array and populate it with clicked list's card
-    let tempArray = [];
-    for (let i = 0; i < cards.length; i++) {
-      if (cards[i] === div1) {
-        tempArray.push(cards[i]);
+  // Display all cards
+  display(cards);
+
+  let lists = document.querySelector("#lists");
+  lists.style.justifyContent = "space-between";
+
+  // Show all cards by resetting the filters
+  cards.forEach((card) => {
+    card.style.display = "block";
+  });
+
+  console.log("Back button is working");
+}
+    
+
+
+let hr = document.createElement("hr");
+let ul = document.createElement("ul");
+let del = document.createElement("i");
+del.className = "fa fa-trash";
+
+let plusIcon = document.createElement("i");
+plusIcon.className = "fa-solid fa-circle-plus";
+
+// Adding function to "add" button
+plusIcon.addEventListener("click", () => {
+  showItemForm(ul);
+});
+
+// Create a div to store title, + and delete buttons
+let div1 = document.createElement("div");
+div1.append(title, hr, ul, plusIcon, del);
+
+// Set CSS classes for styling
+div1.classList.add("cardList");
+title.classList.add("cardTitle");
+ul.classList.add("cardItemList");
+plusIcon.classList.add("cardAddIcon");
+del.classList.add("cardDelIcon");
+
+
+
+ // Delete button (Delete entire card)
+del.addEventListener("click", removeList)
+
+function removeList(){
+     let tempArray = [];
+     for (let i = 0; i < cards.length; i++) {
+     if (cards[i] !== div1) {
+          tempArray.push(cards[i]);
+         }
       }
-    }
+      cards = tempArray;
 
-    //update the "cards"array and display the updated cards
-    cards = tempArray;
-    display(cards);
-
-    console.log("title is clickable.");
-
-    function reverseTitleBtn() {
-      let header = document.querySelector("header");
-      header.firstElementChild.style.display = "block";
-      document.querySelector(".add").style.visibility = "visible";
-      document.querySelector(".backBtnBox").style.display = "none";
-      document.querySelector(".taskList").innerHTML = "Tasks List";
-      // let taskListText = document.querySelector(".taskList").innerHTML;
-      //console.log(taskListText);
-
-      let lists = document.querySelector("#lists");
-      lists.style.justifyContent = "space-between";
+  // Display the remaining cards
       display(cards);
 
-      console.log("back button is working");
-    }
+  // Show the "#text" element if no cards are left
+      if (cards.length === 0) {
+      document.querySelector("#text").style.display = "block";
+       }
 
-    document
-      .querySelector(".backBtnBox")
-      .addEventListener("click", reverseTitleBtn);
+ console.log("Delete button is working.");
+ }
+
+
+
+
+
+// Function to remove an item from the list
+function removeListItem(event) {
+       if (event.target.classList.contains("deleteItem")) {
+           let listItem = event.target.parentElement; // Get the parent list item
+           ul.removeChild(listItem); // Remove the list item from the list
+
+           console.log("Item is being deleted from the list.");
+          }
   }
 
-  let hr = document.createElement("hr");
-
-  let ul = document.createElement("ul");
-
-  let del = document.createElement("i");
-  del.className = "fa fa-trash";
-  //<i class="fa fa-trash"></i>
-
-  let plusIcon = document.createElement("i");
-  plusIcon.className = "fa-solid fa-circle-plus";
-  //<i id="createList" class="fa-solid fa-plus"></i>
-
-  //adding function to "add"  button
-  plusIcon.addEventListener("click", () => {
-    showItemForm(ul);
-  });
-
-  //create one div to store title, + and delete buttons
-  let div1 = document.createElement("div");
-  div1.append(title, hr, ul, plusIcon, del);
-
-  // Set multiple CSS properties in one statement
-  div1.classList.add("cardList");
-  // div1.style.cssText =
-  //   "width: 250px; height: 330px; border: 1px solid black; border-radius:20px;box-shadow: 2px 2px 5px gray; background-color: white;position:relative;text-align:center;";
-
-  title.classList.add("cardTitle");
-  // title.style.cssText = "text-align:center;font-weight:bold;font-size:25px;";
-
-  ul.classList.add("cardItemList");
-  // ul.style.cssText = "list-style-type:none;text-align:center;";
-
-  plusIcon.classList.add("cardAddIcon");
-  //plusIcon.style.cssText="float:right;margin:240px 0px 15px;";
-  // plusIcon.style.cssText = "position:absolute;top:290px;left:190px;";
-
-  del.classList.add("cardDelIcon");
-  //del.style.cssText="float:right;margin:240px 15px 15px;";
-  // del.style.cssText ="margin-left:10px;position:absolute;top:290px;left:150px;";
-
-  // First delete button (Delete entire card)
-  //adding function to "del"
-  del.addEventListener("click", function removeList() {
-    let tempArray = [];
-    for (let i = 0; i < cards.length; i++) {
-      if (cards[i] !== div1) {
-        tempArray.push(cards[i]);
-      }
-    }
-    cards = tempArray;
-    display(cards);
-
-    console.log("delete button is working.");
-  });
-
-  function removeListItem(event) {
-    if (event.target.classList.contains("deleteItem")) {
-      let listItem = event.target.parentElement; // Get the parent list item
-      ul.removeChild(listItem); // Remove the list item from the list
-      console.log("Item is being deleted from the list.");
-    }
-  }
-
-  // Attach the event listener to each list item (li)
-  let listItems = ul.querySelectorAll("li");
-  listItems.forEach((item) => {
+// Attach the event listener to each list item (li)
+let listItems = ul.querySelectorAll("li");
+listItems.forEach((item) => {
     item.addEventListener("click", removeListItem);
   });
 
-  //pushing lists into empty array
-  cards.push(div1);
-  display(cards);
 
-  console.log(cards, "cards");
+// Push the card into the empty cards array and display
+cards.push(div1);
+display(cards);
+console.log(cards, "cards");
 
-  function display(cards) {
+
+// Function to display the cards
+function display(cards) {
     let lists = document.querySelector("#lists");
     lists.innerHTML = "";
     for (let i = 0; i < cards.length; i++) {
@@ -190,78 +213,78 @@ function createCard() {
   }
 }
 
-function showItemForm(ul) {
-  document.querySelector("#itemForm").style.display = "block";
-  document.querySelector("#lists").style.filter = "blur(7px)";
-  document.querySelector("#content").style.filter = "blur(7px)";
 
-  document.querySelector("#createNewItem").addEventListener("click", m1);
-  function m1() {
-    let li = document.createElement("li");
-    li.innerText = document.querySelector("#itemName").value;
-    // li.classList.add("list2");
-    ul.append(li);
+
+// Function to show the item creation form
+function showItemForm(ul) {
+      document.querySelector("#itemForm").style.display = "block";
+      document.querySelector("#lists").style.filter = "blur(7px)";
+      document.querySelector("#content").style.filter = "blur(7px)";
+
+document.querySelector("#createNewItem").addEventListener("click", createList);
+function createList() {
+          let li = document.createElement("li");
+          li.innerText = document.querySelector("#itemName").value;
+          ul.append(li);
 
     //adding logic to button of mark as done
-    let markAsdone_btn = document.createElement("button");
-    markAsdone_btn.innerHTML = "Mark as done";
-    markAsdone_btn.type = "checkbox";
-    markAsdone_btn.name = "markAsDone";
-    markAsdone_btn.classList.add("markAsDone");
-    li.append(markAsdone_btn);
+          let markAsdone_btn = document.createElement("button");
+          markAsdone_btn.innerHTML = "Mark as done";
+          markAsdone_btn.type = "checkbox";
+          markAsdone_btn.name = "markAsDone";
+          markAsdone_btn.classList.add("markAsDone");
+           li.append(markAsdone_btn);
 
-    markAsdone_btn.addEventListener("click", markAsDone);
-    function markAsDone() {
-      li.classList.add("li");
-      markAsdone_btn.style.cursor = "not-allowed";
-      markAsdone_btn.style.display = "none";
 
-      console.log("MarkDone button is working");
-    }
 
-    document.querySelector("#itemForm").style.display = "none";
-    document.querySelector("#content").style.filter = "none";
-    document.querySelector("#lists").style.filter = "none";
+    // Function to mark an item as done
+markAsdone_btn.addEventListener("click", markAsDone);
+function markAsDone() {
+               li.classList.add("li");
+               markAsdone_btn.style.cursor = "not-allowed";
+               markAsdone_btn.style.display = "none";
 
-    //remove "eventListener" after creating a item
-    document.querySelector("#createNewItem").removeEventListener("click", m1);
+                console.log("MarkDone button is working");
+             }
 
-    console.log("Add button is pressed.");
+        document.querySelector("#itemForm").style.display = "none";
+        document.querySelector("#content").style.filter = "none";
+        document.querySelector("#lists").style.filter = "none";
 
-    //  // Add delete button for individual item
-    //  let deleteItemBtn = document.createElement("i");
-    //  deleteItemBtn.className = "fas fa-times deleteItem";
-    //  li.appendChild(deleteItemBtn);
-  }
+//remove "eventListener" after creating a item
+document.querySelector("#createNewItem").removeEventListener("click", createList);
+
+console.log("Add button is pressed.");
+}
 
   //to close itemform after clikcing "close" button
-  document
-    .querySelector("#closeItemForm")
-    .addEventListener("click", hideItemForm);
-
-  function hideItemForm() {
+document.querySelector("#closeItemForm").addEventListener("click", hideItemForm);
+function hideItemForm() {
     document.querySelector("#itemForm").style.display = "none";
     document.querySelector("#content").style.filter = "none";
     document.querySelector("#lists").style.filter = "none";
-    // document.querySelector("#text").style.display="none";
     document.querySelector("#createNewItem").removeEventListener("click", m1);
 
     console.log("hideItemForm");
   }
 }
 
-// function display(cards){
-//     let lists=document.querySelector("#lists");
-//     lists.innerHTML="";
-//     for(let i=0;i<cards.length;i++){
-//         lists.appendChild(cards[i]);
-//     }
+// function display(cards) {
+//   let lists = document.querySelector("#lists");
+//   lists.innerHTML = "";
+//   for (let i = 0; i < cards.length; i++) {
+//     lists.appendChild(cards[i]);
+//   }
+//   console.log("cards");
 // }
+
+
 function display(tempArray) {
   let lists = document.querySelector("#lists");
   lists.innerHTML = "";
   for (let i = 0; i < tempArray.length; i++) {
     lists.appendChild(tempArray[i]);
   }
+
   console.log("temparray");
 }

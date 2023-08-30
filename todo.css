@@ -14,11 +14,11 @@ header {
   justify-content: space-between;
   font-size: 35px;
 }
-/* 
+
 .task{
     font-weight:bold; 
     color:dodgerblue;
-} */
+}
 
 .addItem {
   display: flex;
@@ -189,6 +189,18 @@ button {
     top: 200px;
   }
 
+  #lists {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    /* margin: 10px; */
+    gap: 20px 10px;
+  }
+  
+
   #listForm {
     width: 90%;
     height: 160px;
@@ -248,10 +260,6 @@ button {
     overflow-x: hidden;
     position: absolute;
     height: 150px;
-    /* width:auto ; */
-    /* margin-left: 20px; */
-
-    /* padding: 10px; */
   }
 
   .cardAddIcon {
