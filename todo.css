@@ -62,6 +62,7 @@ header {
 }
 .heading {
   color: red;
+  word-wrap: break-word;
 }
 .addNewList {
   color: red;
