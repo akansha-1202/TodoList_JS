@@ -150,6 +150,10 @@ button {
   width: 210px;
 }
 
+.cardItemList::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar in WebKit-based browsers */
+}
+
 .cardAddIcon {
   position: absolute;
   top: 290px;
@@ -168,6 +172,7 @@ button {
   background-color: dodgerblue;
   border: 1px solid dodgerblue;
   height: 20px;
+  margin-bottom: 4px;
 }
 .li {
   text-decoration: line-through red;
@@ -263,6 +268,10 @@ button {
     height: 150px;
   }
 
+  .cardItemList::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar in WebKit-based browsers */
+  }
+
   .cardAddIcon {
     position: absolute;
     top: 290px;
@@ -283,6 +292,7 @@ button {
     height: 20px;
     padding: 2px;
     width: 50px;
+    margin-bottom: 4px;
   }
   .li {
     text-decoration: line-through red;
